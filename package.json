@@ -1,0 +1,20 @@
+{
+  "name": "template_v1",
+  "version": "1.0.0",
+  "description": "This is for full stack practice",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "node push.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevngn6695/Template_v1.git"
+  },
+  "author": "Hiep Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevngn6695/Template_v1/issues"
+  },
+  "homepage": "https://github.com/kevngn6695/Template_v1#readme"
+}
