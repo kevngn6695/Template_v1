@@ -12,6 +12,7 @@ export interface HeadingProps {
  * Form component props
  */
 export interface FormProps {
+  children: React.ReactNode;
   className?: string;
   action?: string;
   autoComplete?: string;
@@ -56,6 +57,7 @@ export interface InputProps {
  */
 export interface ButtonProps {
   className?: string;
+  children: React.ReactNode;
   type?: "button" | "submit" | "reset";
   onClick: () => void;
 }
@@ -66,6 +68,14 @@ export interface ButtonProps {
 
 export interface TooltipProps {
   children: React.ReactNode;
+}
+
+/**
+ * Loading component props
+ */
+export interface LoadingProps {
+  className?: string;
+  children?: React.ReactNode;
 }
 
 /**
