@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Dashboard from "../components/advanced/Dashboard";
 import Input from "../components/common/Input";
@@ -6,6 +6,9 @@ import Form from "../components/common/Form";
 import Button from "../components/common/Button";
 
 function Admin() {
+  const [loading, setLoading] = useState(null);
+
+  useEffect(() => {}, []);
   return (
     <Dashboard className="admin-dashboard">
       <Form

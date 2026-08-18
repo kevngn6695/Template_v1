@@ -5,6 +5,11 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "db:up": "tsx src/database/cli/migration.ts up",
+    "db:down": "tsx src/database/cli/migration.ts down",
+    "db:fresh": "tsx src/database/cli/migration.ts fresh",
+    "db:start": "npm run db:up",
+    "db:reset": "npm run db:fresh",
     "server": "nodemon",
     "client": "cd .. && cd client && yarn install && yarn run build && yarn start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
