@@ -9,7 +9,7 @@ const migrations = {
 };
 
 /**
- *
+ * Save
  * @param name
  * @returns
  */
@@ -29,6 +29,32 @@ export const isMigrationTableExist = async (name: string): Promise<boolean> => {
 export const recordMigration = async (name: string): Promise<void> => {
   try {
     const res = await pool.query(``);
+  } catch (err) {
+    logger.error(``, err);
+  }
+};
+
+export const removeMigration = async (name: string): Promise<void> => {
+  try {
+    const res = await pool.query(``);
+  } catch (err) {
+    logger.error(`Error deleting migration record: `, err);
+  }
+};
+
+export const runMigration = async (): Promise<void> => {
+  try {
+    logger.info("Starting database migrations...");
+
+    // Create migration table if not exist
+  } catch (err) {
+    logger.error(``, err);
+  }
+};
+
+export const rollbackMigration = async (): Promise<void> => {
+  try {
+    logger.info("Rolling back migrations...");
   } catch (err) {
     logger.error(``, err);
   }
