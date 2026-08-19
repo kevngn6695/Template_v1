@@ -8,6 +8,7 @@ const level = {
   debug: 3,
 };
 
+// Initialize color code for printed lines on console
 const color = {
   error: "red",
   warn: "yellow",
@@ -15,8 +16,10 @@ const color = {
   debug: "blue",
 };
 
+// Add initial color code
 winston.addColors(color);
 
+// [ File Format ]:
 const fileFormat = winston.format.combine(
   winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
   winston.format.errors({ stack: true }),
@@ -28,6 +31,7 @@ const fileFormat = winston.format.combine(
   }),
 );
 
+// [ Console Format ]:
 const consoleFormat = winston.format.combine(
   winston.format.colorize(),
   winston.format.simple(),
