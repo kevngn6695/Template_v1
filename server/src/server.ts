@@ -11,7 +11,7 @@ import type { CorsOptions } from "cors";
 import env from "@/config/env.config";
 import limiter from "@/utils/rate_limit.utils";
 import logger from "@/utils/logger.utils";
-import pool from "@/database/db";
+import pool from "./database/db";
 
 import apiRoute from "@/routes/index.routes";
 
