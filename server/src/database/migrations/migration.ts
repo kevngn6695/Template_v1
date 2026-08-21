@@ -1,7 +1,7 @@
 import pool from "@/database/db";
 import logger from "@/utils/logger.utils";
 
-import * as migrtn001 from "@/database/migrations/controllers/001_greeting_table.controller";
+import * as migrtn001 from "@/database/migrations/controllers/002_migration_table.controller";
 
 // Migration list
 const migrations = {
