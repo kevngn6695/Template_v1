@@ -98,7 +98,7 @@ export const resetDatabase = async (): Promise<void> => {
 
     // await rollbackMigration();
 
-    // await runMigration();
+    await runMigration();
 
     logger.info(`✅ Database reset successfully`);
   } catch (err) {
@@ -109,7 +109,15 @@ export const resetDatabase = async (): Promise<void> => {
 export const dropAllMigrations = async (): Promise<void> => {
   try {
     logger.info(`✅ Database delete successfully`);
+    await pool.query(`
+        DROP TABLE IF EXISTS sessions CASCADE;
+        DROP TABLE IF EXISTS migrations CASCADE;
+        DROP TABLE IF EXISTS users CASCADE;
+
+        DROP TYPE IF EXISTS user_role;
+        DROP TYPE IF EXISTS auth_provider;
+    `);
   } catch (err) {
-    logger.error(``);
+    logger.error("Error dropping tables:", err);
   }
 };
