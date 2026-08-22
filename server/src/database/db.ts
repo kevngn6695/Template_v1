@@ -1,9 +1,16 @@
+/**
+ * 
+ */
 import dotenv from "dotenv";
 import { Pool, QueryResultRow, QueryResult } from "pg";
 
+/**
+ * 
+ */
 import logger from "@/utils/logger.utils";
 import env from "@/config/env.config";
 
+// 
 dotenv.config({ quiet: true, debug: true });
 
 const pool = new Pool({
