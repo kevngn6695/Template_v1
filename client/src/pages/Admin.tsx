@@ -1,3 +1,10 @@
+/**
+ * @copyright 2026 - present, Heniseeyou, LLC
+ * @license Apache-2.0
+ * @author Hiep Nguyen
+ *
+ */
+
 import React, { useState, useEffect } from "react";
 
 import Dashboard from "../components/advanced/Dashboard";

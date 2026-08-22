@@ -4,3 +4,6 @@ CREATE TABLE IF NOT EXISTS migrations {
     executed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 }
 
+-- Inner comments in the database
+COMMENT ON TABLE migrations IS "which migrations have run, and when. Maintained by src/db/migrate.ts"
+-- COMMENT ON COLUMN 
