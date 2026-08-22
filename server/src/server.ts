@@ -1,3 +1,10 @@
+/** 
+ * @copyright 2026 - present, Heniseeyou, LLC
+ * @license Apache-2.0
+ * @author Hiep Nguyen
+ * 
+ */
+
 import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
@@ -27,7 +34,7 @@ app.use(
 );
 
 /**
- * Middleware configuration
+ * Middleware configuration [Fixed]
  */
 
 app.use(
@@ -82,6 +89,10 @@ app.use(
   }
 })();
 
+
+/**
+ * Handle Server Shutdown [Fixed]
+ */
 const handleServerShutdown = async () => {
   try {
     // Server Connected

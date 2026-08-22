@@ -1,3 +1,10 @@
+/** 
+ * @copyright 2026 - present, Heniseeyou ,LLC
+ * @license Apache-2.0
+ * @author Hiep Nguyen
+ * 
+ */
+
 import { Pool } from "pg";
 import logger from "@/utils/logger.utils";
 

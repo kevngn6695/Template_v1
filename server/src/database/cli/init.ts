@@ -1,3 +1,10 @@
+/** 
+ * @copyright 2026 - present, Heniseeyou ,LLC
+ * @license Apache-2.0
+ * @author Hiep Nguyen
+ * 
+ */
+
 import pool from "@/database/db";
 import logger from "@/utils/logger.utils";
 
@@ -12,6 +19,8 @@ const arg = process.argv.slice(2);
 const command = arg[0] || "up";
 
 async function main() {
+
+    // [ Edit ] add more cases
   try {
     switch (command) {
       case "up":
