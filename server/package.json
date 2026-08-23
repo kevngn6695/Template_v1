@@ -81,6 +81,8 @@
     "@types/pg": "^8.16.0",
     "concurrently": "^9.2.1",
     "drizzle-kit": "^0.31.9",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
     "node-pg-migrate": "^8.0.4",
     "nodemon": "^3.1.11",
     "prettier": "^3.8.1",
@@ -88,6 +90,7 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.67.0"
   }
 }

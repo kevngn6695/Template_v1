@@ -12,7 +12,7 @@ import * as migrtn001 from "@/database/migrations/controllers/002_migration_tabl
 
 // Migration list
 const migrations = {
-  "001_greeting_table": migrtn001,
+  "001_migration_table": migrtn001,
 };
 
 /**
@@ -90,6 +90,9 @@ export const runMigration = async (): Promise<void> => {
   }
 };
 
+/**
+ * 
+ */
 export const rollbackMigration = async (): Promise<void> => {
   try {
     logger.info("Rolling back migrations...");
@@ -99,6 +102,9 @@ export const rollbackMigration = async (): Promise<void> => {
   }
 };
 
+/**
+ * 
+ */
 export const resetDatabase = async (): Promise<void> => {
   try {
     logger.info(`Resetting the database...`);
@@ -113,6 +119,9 @@ export const resetDatabase = async (): Promise<void> => {
   }
 };
 
+/**
+ * 
+ */
 export const dropAllMigrations = async (): Promise<void> => {
   try {
     logger.info(`✅ Database delete successfully`);
