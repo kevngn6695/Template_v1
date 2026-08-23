@@ -1,18 +1,18 @@
-/** 
+/**
  * @copyright 2026 - present, Heniseeyou ,LLC
  * @license Apache-2.0
  * @author Hiep Nguyen
- * 
+ *
  */
 
-import pool from "@/database/db";
-import logger from "@/utils/logger.utils";
+import pool from '@/database/db';
+import logger from '@/utils/logger.utils';
 
-import * as migrtn001 from "@/database/migrations/controllers/002_migration_table.controller";
+import * as migrtn001 from '@/database/migrations/controllers/002_migration_table.controller';
 
 // Migration list
 const migrations = {
-  "001_migration_table": migrtn001,
+  '001_migration_table': migrtn001,
 };
 
 /**
@@ -20,36 +20,51 @@ const migrations = {
  * @param name
  * @returns
  */
-export const isMigrationTableExist = async (name: string): Promise<boolean> => {
+
+export async function createMigrationsTable(): Promise<void> {
   try {
-    const res = await pool.query(`SELECT id FROM migrations WHERE name=$1 `, [
+    await pool.query(`
+        CREATE TABLE IF NOT EXISTS migrations (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            executed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        )
+    `);
+  } catch (err) {
+    logger.error(`[ Error ] Creating database `, err);
+  }
+}
+
+export async function isMigrationTableExist(name: string): Promise<boolean> {
+  try {
+    const res = await pool.query(`SELECT id FROM migrations WHERE name = $1 `, [
       name,
     ]);
 
     return res.rowCount! > 0;
   } catch (err) {
-    logger.error(`Error checking migrations table: `, err);
+    logger.error(`[ Error ] Checking migrations table: `, err);
     return false;
   }
-};
+}
 
 /**
  *
  * @param name
  */
-export const recordMigration = async (name: string): Promise<void> => {
+export async function recordMigration(name: string): Promise<void> {
   try {
     const res = await pool.query(`INSERT`);
   } catch (err) {
     logger.error(``, err);
   }
-};
+}
 
 /**
  *
  * @param name
  */
-export const removeMigration = async (name: string): Promise<void> => {
+export async function removeMigration(name: string): Promise<void> {
   try {
     const res = await pool.query(`DELETE FROM migrations WHERE name=$1`, [
       name,
@@ -59,16 +74,17 @@ export const removeMigration = async (name: string): Promise<void> => {
   } catch (err) {
     logger.error(`Error deleting migration record: `, err);
   }
-};
+}
 
 /**
  *
  */
-export const runMigration = async (): Promise<void> => {
+export async function runMigration(): Promise<void> {
   try {
     logger.info(`Starting database migrations...`);
 
     // Create migration table if not exist
+
     let count = 0;
 
     for (const [name, migration] of Object.entries(migrations).reverse()) {
@@ -88,24 +104,24 @@ export const runMigration = async (): Promise<void> => {
   } catch (err) {
     logger.error(`Error :`, err);
   }
-};
+}
 
 /**
- * 
+ *
  */
-export const rollbackMigration = async (): Promise<void> => {
+export async function rollbackMigration(): Promise<void> {
   try {
-    logger.info("Rolling back migrations...");
+    logger.info('Rolling back migrations...');
   } catch (err) {
     logger.error(`Error: `, err);
     throw err;
   }
-};
+}
 
 /**
- * 
+ *
  */
-export const resetDatabase = async (): Promise<void> => {
+export async function resetDatabase(): Promise<void> {
   try {
     logger.info(`Resetting the database...`);
 
@@ -117,12 +133,13 @@ export const resetDatabase = async (): Promise<void> => {
   } catch (err) {
     logger.error(`[ Error ] resetting database: `, err);
   }
-};
+}
 
 /**
- * 
+ * Drop list of migrations
+ *
  */
-export const dropAllMigrations = async (): Promise<void> => {
+export async function dropAllMigrations(): Promise<void> {
   try {
     logger.info(`✅ Database delete successfully`);
     await pool.query(`
@@ -134,6 +151,6 @@ export const dropAllMigrations = async (): Promise<void> => {
         DROP TYPE IF EXISTS auth_provider;
     `);
   } catch (err) {
-    logger.error("Error dropping tables:", err);
+    logger.error('Error dropping tables:', err);
   }
-};
+}
