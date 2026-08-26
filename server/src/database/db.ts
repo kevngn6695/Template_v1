@@ -1,18 +1,28 @@
 /**
  *
  */
-import dotenv from 'dotenv';
-import { Pool, QueryResultRow, QueryResult, PoolClient } from 'pg';
+import { Pool } from 'pg';
+import type { QueryResultRow, QueryResult, PoolClient } from 'pg';
 
 /**
  *
  */
+import {
+  DatabaseError,
+  isRetryableError,
+  serializeError,
+} from '@/database/utils/errors.utils';
 import logger from '@/utils/logger.utils';
 import env from '@/config/env.config';
 
-//
-dotenv.config({ quiet: true, debug: true });
+const SLOW_QUERY_MS = 200;
+let closed = false;
 
+const target = `${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME}`;
+
+/**
+ *
+ */
 const pool = new Pool({
   host: env.DB_HOST || 'localhost',
   port: env.DB_PORT || 5432,
@@ -25,17 +35,15 @@ const pool = new Pool({
   ssl: env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
-try {
-  pool.on('connect', () => {
-    logger.info(
-      `✅ Connected to ${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME} database successfully`
-    );
-  });
-} catch (error) {
-  pool.on('error', (err) => {
-    logger.error('❌ Error connecting to the database', err.message);
-  });
-}
+pool.on('connect', () => {
+  logger.debug(
+    `✅ Connected to ${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME} database successfully`
+  );
+});
+
+pool.on('error', (err) => {
+  logger.error('❌ Idle Postgres client errored', { err: serializeError(err) });
+});
 
 /**
  *
@@ -53,8 +61,11 @@ export async function withTransaction<T>(
     await client.query('COMMIT');
     return result;
   } catch (err) {
-    await client.query('ROLLBACK');
-    logger.error('Transaction error', err);
+    await client.query('ROLLBACK').catch((rollbackErr: unknown) => {
+      logger.error('ROLLBACK failed; connection is likely gone', {
+        err: serializeError(rollbackErr),
+      });
+    });
     throw err;
   } finally {
     client.release();
@@ -69,34 +80,85 @@ export async function withTransaction<T>(
  */
 export async function query<T extends QueryResultRow = QueryResultRow>(
   text: string,
-  param?: any[]
+  params?: readonly unknown[]
 ): Promise<QueryResult<T>> {
   const start = Date.now();
+
   try {
-    const res = await pool.query<T>(text, param);
+    const result = await pool.query<T>(text, params ? [...params] : undefined);
     const duration = Date.now() - start;
-    logger.debug(
-      'Executed query: ',
-      { text, duration, rows: res.rowCount },
-      'Query executed'
-    );
-    return res;
-  } catch (error) {
-    logger.error('Query error: ', { query: text, param, error });
-    throw error;
+
+    if (duration >= SLOW_QUERY_MS) {
+      logger.warn('Slow query', { text, duration, rows: result.rowCount });
+    } else {
+      logger.debug('Query executed', { text, duration, rows: result.rowCount });
+    }
+
+    return result;
+  } catch (err) {
+    /**
+     * The statement text is safe to log; the parameters are not — they hold
+     * whatever the caller passed, which is where passwords, tokens and
+     * personal data live. Only the shape is recorded.
+     */
+    logger.error('Query failed', {
+      text,
+      paramCount: params?.length ?? 0,
+      err: serializeError(err),
+    });
+    throw err;
   }
 }
 
-export async function connectDatabase(): Promise<void> {
-  const client = await pool.connect();
-  logger.info(
-    `✅ PostgresSQL connected: ${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME}`
-  );
-  client.release();
+export async function connectDatabase(
+  retries = 5,
+  delayMs = 1_000
+): Promise<void> {
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    try {
+      const client = await pool.connect();
+      try {
+        await client.query('SELECT 1');
+      } finally {
+        client.release();
+      }
+
+      logger.info(`✅ PostgresSQL connected: ${target}`);
+      return;
+    } catch (err) {
+      // A bad password or a missing database will never succeed on attempt 5.
+      const worthRetrying = isRetryableError(err);
+
+      if (attempt === retries || !worthRetrying) {
+        logger.error(`❌ Could not reach Postgres at ${target}`, {
+          attempts: attempt,
+          err: serializeError(err),
+        });
+        throw new DatabaseError(`Could not connect to Postgres at ${target}`, {
+          cause: err,
+        });
+      }
+
+      logger.warn(
+        `Postgres not ready (attempt ${attempt}/${retries}), retrying…`,
+        {
+          err: serializeError(err),
+        }
+      );
+      await new Promise((resolve) => setTimeout(resolve, delayMs * attempt));
+    }
+  }
 }
 
+/**
+ *
+ */
 export async function disconnectDatabase(): Promise<void> {
+  if (closed) return;
+  closed = true;
+
   await pool.end();
+  logger.info('Postgres pool closed');
 }
 
 export default pool;

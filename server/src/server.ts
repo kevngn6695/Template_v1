@@ -19,7 +19,7 @@ import type { CorsOptions } from 'cors';
 import env from '@/config/env.config';
 import limiter from '@/utils/rate_limit.utils';
 import logger from '@/utils/logger.utils';
-import pool from './database/db';
+import { connectDatabase, disconnectDatabase } from './database/db';
 
 import apiRoute from '@/routes/index.routes';
 
@@ -86,7 +86,7 @@ app.use('/api/auth', limiter);
 (async () => {
   try {
     // Server connected
-    await pool.connect();
+    await connectDatabase();
 
     app.use('/api', apiRoute);
     /* Set a path between client and server */
@@ -117,7 +117,7 @@ app.use('/api/auth', limiter);
 const handleServerShutdown = async () => {
   try {
     // Server Connected
-    await pool.end();
+    await disconnectDatabase();
     logger.info('Shutting down server gracefully...');
   } catch (error) {
     logger.error('Error during server connection', error);

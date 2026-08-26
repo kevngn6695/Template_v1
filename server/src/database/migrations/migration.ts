@@ -7,11 +7,17 @@
 
 import pool from '@/database/db';
 import logger from '@/utils/logger.utils';
+import {
+  MigrationError,
+  MigrationLockError,
+  serializeError,
+} from '@/database/utils/errors.utils';
+
+import type { Pool, PoolClient } from 'pg';
+import env from '@/config/env.config';
 
 import * as migration001 from '@/database/migrations/controllers/002_migration_table.controller';
-import type { Pool, PoolClient } from 'pg';
 
-//
 export interface Migration {
   up(client: Pool | PoolClient): Promise<void>;
   down(client: Pool | PoolClient): Promise<void>;
@@ -148,10 +154,17 @@ export async function withMigrationLock<T>(
   work: (client: PoolClient) => Promise<T>
 ): Promise<T> {
   const client = await pool.connect();
-  try {
-    logger.info(`Waiting for the migration lock...`);
 
-    await client.query(`SELECT pg_advisory_lock($1)`, [MIGRATION_LOCK_ID]);
+  try {
+    logger.debug(`Waiting for the migration lock...`);
+
+    try {
+      await client.query(`SELECT pg_advisory_lock($1)`, [MIGRATION_LOCK_ID]);
+    } catch (err) {
+      throw new MigrationLockError('Could not acquire the migration lock', {
+        cause: err,
+      });
+    }
 
     await createMigrationsTable(client);
 
@@ -160,7 +173,10 @@ export async function withMigrationLock<T>(
     try {
       await client.query('SELECT pg_advisory_unlock($1)', [MIGRATION_LOCK_ID]);
     } catch (err) {
-      logger.warn(`[ Error ] Could not release the migration lock`, { err });
+      logger.warn(`[ Error ] Could not release the migration lock`, {
+        err: serializeError(err),
+      });
+
       client.release();
     }
   }
@@ -190,48 +206,44 @@ async function inTransaction(
  */
 export async function runMigration(): Promise<void> {
   await withMigrationLock(async (client) => {
-    try {
-      logger.info(`Starting database migrations...`);
+    logger.info(`Starting database migrations...`);
 
-      // Create migration table if not exist
+    // Create migration table if not exist
 
-      let applied: number = 0;
+    let applied: number = 0;
 
-      for (const [name, migration] of orderedMigrations()) {
-        const isExecuted = await hasMigrationTableExist(client, name);
+    for (const [name, migration] of orderedMigrations()) {
+      const isExecuted = await hasMigrationTableExist(client, name);
 
-        if (!isExecuted) {
-          logger.debug(`[ Debug ] Not Applied, Skipping rollback: ${name}`);
-          continue;
-        }
-
-        logger.info(`Rolling back migration: ${name}`);
-
-        try {
-          await inTransaction(client, async (tx) => {
-            await migration.up(tx);
-            await recordMigration(tx, name);
-          });
-        } catch (err) {
-          logger.error(`Migration failed, rolled back: ${name}`, {
-            err,
-            migration: name,
-          });
-
-          throw err;
-        }
-
-        applied += 1;
+      if (!isExecuted) {
+        logger.debug(`[ Debug ] Not Applied, Skipping rollback: ${name}`);
+        continue;
       }
 
-      logger.info(
-        applied === 0
-          ? '✅ Database already up to date'
-          : `✅ Applied ${applied} migration(s)`
-      );
-    } catch (err) {
-      logger.error(`[ Error ] Running Unknown Migrations`, err);
+      logger.info(`Rolling back migration: ${name}`);
+
+      try {
+        await inTransaction(client, async (tx) => {
+          await migration.up(tx);
+          await recordMigration(tx, name);
+        });
+      } catch (err) {
+        logger.error(`Migration failed, rolled back: ${name}`, {
+          err,
+          migration: name,
+        });
+
+        throw err;
+      }
+
+      applied += 1;
     }
+
+    logger.info(
+      applied === 0
+        ? '✅ Database already up to date'
+        : `✅ Applied ${applied} migration(s)`
+    );
   });
 }
 
@@ -244,50 +256,65 @@ export async function rollbackMigration(steps?: number): Promise<void> {
 
     const limit = steps ?? pending.length;
 
-    try {
-      logger.info('Rolling back migrations...');
+    logger.info('Rolling back migrations...');
 
-      let rollBack: number = 0;
+    logger.info(
+      `Rolling back ${steps ? `${steps} migration${steps > 1 ? 's' : ''}` : `all migrations`}`
+    );
 
-      for (const [name, migration] of pending) {
-        if (rollBack >= limit) break;
+    let rolledBack: number = 0;
 
-        if (!(await hasMigrationTableExist(client, name))) {
-          logger.debug(`Not applied! skipping rollback: ${name}`);
-          continue;
-        }
+    for (const [name, migration] of pending) {
+      if (rolledBack >= limit) break;
 
-        logger.info(`Rolling back migraions: ${name}`);
-
-        try {
-          await inTransaction(client, async (tx) => {
-            await migration.down(tx);
-            await removeMigration(tx, name);
-          });
-        } catch (err) {}
+      if (!(await hasMigrationTableExist(client, name))) {
+        logger.debug(`Not applied! skipping rollback: ${name}`);
+        continue;
       }
-    } catch (err) {
-      logger.error(`Error: `, err);
-      throw err;
+
+      logger.info(`Rolling back migraions: ${name}`);
+
+      try {
+        await inTransaction(client, async (tx) => {
+          await migration.down(tx);
+          await removeMigration(tx, name);
+        });
+      } catch (err) {
+        const error = new MigrationError(name, 'down', { cause: err });
+        logger.error(`[ Error ] `, error.message, {
+          err: serializeError(error),
+        });
+        throw error;
+      }
+
+      rolledBack += 1;
     }
+
+    logger.info(`✅ Rolled back ${rolledBack} migration(s)`);
   });
 }
 
 /**
  *
  */
-export async function resetDatabase(): Promise<void> {
-  try {
-    logger.info(`Resetting the database...`);
+export async function rollbackLastMigration(): Promise<void> {
+  await rollbackMigration(1);
+}
 
-    // await rollbackMigration();
-
-    await runMigration();
-
-    logger.info(`✅ Database reset successfully`);
-  } catch (err) {
-    logger.error(`[ Error ] resetting database: `, err);
+function assertNotProduction(action: string): void {
+  if (env.NODE_ENV === 'production') {
+    throw new Error(`Refusing to ${action} in production.`);
   }
+}
+
+/** Roll everything back, then apply it again. */
+export async function resetDatabase(): Promise<void> {
+  assertNotProduction('Reset the database');
+
+  logger.info('Resetting the database…');
+  await rollbackMigration();
+  await runMigration();
+  logger.info('✅ Database reset successfully');
 }
 
 /**
@@ -295,17 +322,15 @@ export async function resetDatabase(): Promise<void> {
  *
  */
 export async function dropAllMigrations(): Promise<void> {
-  try {
-    logger.info(`✅ Database delete successfully`);
-    await pool.query(`
-        DROP TABLE IF EXISTS sessions CASCADE;
-        DROP TABLE IF EXISTS migrations CASCADE;
-        DROP TABLE IF EXISTS users CASCADE;
+  assertNotProduction('Drop the schema');
 
-        DROP TYPE IF EXISTS user_role;
-        DROP TYPE IF EXISTS auth_provider;
-    `);
-  } catch (err) {
-    logger.error('Error dropping tables:', err);
+  const client = await pool.connect();
+  try {
+    logger.warn('Dropping the entire public schema…');
+    await client.query('DROP SCHEMA public CASCADE');
+    await client.query('CREATE SCHEMA public');
+    logger.info('✅ Schema dropped and recreated');
+  } finally {
+    client.release();
   }
 }
