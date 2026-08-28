@@ -5,125 +5,107 @@
  *
  */
 
-import dotenv from 'dotenv';
-import express from 'express';
-import helmet from 'helmet';
-import cors from 'cors';
-import path from 'path';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import compression from 'compression';
+import type { Server } from 'http';
 
-import type { CorsOptions } from 'cors';
-
+import app from '@/main/App';
 import env from '@/config/env.config';
-import limiter from '@/utils/rate_limit.utils';
 import logger from '@/utils/logger.utils';
+
 import { connectDatabase, disconnectDatabase } from './database/db';
 
-import apiRoute from '@/routes/index.routes';
+/* -------------------------------------------------------------------------- */
+/* Boot                                                                        */
+/* -------------------------------------------------------------------------- */
 
-dotenv.config({ debug: true, quiet: true });
-
-const app = express();
+let server: Server | undefined;
 
 /**
- * Middleware configuration [Fixed]
+ * Connects to Postgres, then starts listening.
+ *
+ * @remarks
+ * The process exits 1 on failure in every environment, not only production. A
+ * dev server left running without a database answers every request with a
+ * confusing error instead of telling you the database is down.
+ *
+ * @see {@link connectDatabase}, which handles the retry loop.
  */
 
-// Enable JSON body parsing
-app.use(express.json({ limit: '10mb' }));
-
-// Emable URL-encoded body request body parsing with extended mode
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-app.use(
-  helmet({
-    contentSecurityPolicy: env.NODE_ENV === 'production',
-    crossOriginEmbedderPolicy: false,
-  })
-);
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      const allowed = [
-        env.FRONTEND_URL,
-        'http://localhost:5173',
-        'http://localhost:3000',
-      ];
-      if (
-        env.NODE_ENV === 'development' ||
-        !origin ||
-        allowed.includes(origin)
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS: Origin '${origin}' is not allowed`));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  } as CorsOptions)
-);
-
-app.use(cookieParser(env.COOKIE_SECRET || 'secret'));
-
-//
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-// Enable response compression to reduce payload size and improve performance
-app.use(
-  compression({
-    threshold: 1024, // Compress responses larger than 1KB
-  })
-);
-
-app.use('/api/auth', limiter);
-
-(async () => {
+async function start(): Promise<void> {
   try {
-    // Server connected
     await connectDatabase();
 
-    app.use('/api', apiRoute);
-    /* Set a path between client and server */
-    app.use(express.static(path.join(__dirname, 'client/build')));
-
-    app.get(/^\/(?!api).*/, (req, res) => {
-      // Match all except /api routes
-      res.sendFile(path.join(__dirname, 'client/build/index.html'));
-    });
-
-    // Server configuration and middleware setup can be added here
-    app.listen(env.PORT, () => {
+    server = app.listen(env.PORT, () => {
       logger.info(
-        `Server is running on port http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
+        `Server running at http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
       );
     });
-  } catch (error) {
-    logger.error(`Error occurred while starting the server: ${error}`);
+  } catch (err) {
+    logger.error({ err }, 'Failed to start the server');
+
+    /**
+     * Exit in every environment, not only production. A dev server left
+     * running without a database answers every request with a confusing error
+     * instead of telling you the database is down.
+     */
+    await disconnectDatabase().catch(() => undefined);
+
     if (env.NODE_ENV == 'production') {
       process.exit(1);
     }
   }
-})();
+}
+
+void start();
+
+/* -------------------------------------------------------------------------- */
+/* Shutdown                                                                    */
+/* -------------------------------------------------------------------------- */
+
+let shuttingDown = false;
 
 /**
  * Handle Server Shutdown [Fixed]
  */
-const handleServerShutdown = async () => {
+async function shutdown(signal: string): Promise<void> {
+  if (shuttingDown) return;
+  shuttingDown = true;
+
+  logger.info(`${signal} received, shutting down gracefully…`);
+
+  // Never hang forever on a stuck connection. `unref` so this timer does not
+  // itself keep the process alive.
+  const forceExit = setTimeout(() => {
+    logger.error('Shutdown timed out after 10s, exiting immediately');
+    process.exit(1);
+  }, 10_000);
+  forceExit.unref();
+
   try {
-    // Server Connected
+    if (server) {
+      await new Promise<void>((resolve, reject) => {
+        server?.close((err) => (err ? reject(err) : resolve()));
+      });
+      logger.info('HTTP server closed');
+    }
+
     await disconnectDatabase();
-    logger.info('Shutting down server gracefully...');
-  } catch (error) {
-    logger.error('Error during server connection', error);
+    logger.info('Shutdown complete');
+    process.exit(0);
+  } catch (err) {
+    logger.error({ err }, 'Error during shutdown');
     process.exit(1);
   }
-};
+}
 
-process.on('SIGNINT', handleServerShutdown);
-process.on('SIGTERM', handleServerShutdown);
+process.on('SIGINT', () => void shutdown('SIGINT'));
+process.on('SIGTERM', () => void shutdown('SIGTERM'));
+
+process.on('unhandledRejection', (reason) => {
+  logger.error({ err: reason }, 'Unhandled promise rejection');
+  void shutdown('unhandledRejection');
+});
+
+process.on('uncaughtException', (err) => {
+  logger.error({ err }, 'Uncaught exception');
+  void shutdown('uncaughtException');
+});
