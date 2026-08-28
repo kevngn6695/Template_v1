@@ -74,6 +74,7 @@ export interface ButtonProps {
  */
 
 export interface TooltipProps {
+  className?: string;
   children: React.ReactNode;
 }
 
