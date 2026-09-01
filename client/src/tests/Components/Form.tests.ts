@@ -5,4 +5,4 @@
  *
  */
 
-import Label from "../components/common/Label";
+import Form from "../../components/common/Form";

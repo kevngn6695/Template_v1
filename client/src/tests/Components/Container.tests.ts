@@ -5,4 +5,4 @@
  *
  */
 
-import Container from "../components/common/Container";
+import Container from "../../components/common/Container";

@@ -5,4 +5,4 @@
  *
  */
 
-import Input from "../components/common/Input";
+import Heading from "../../components/common/Headng";

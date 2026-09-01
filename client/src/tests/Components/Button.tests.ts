@@ -5,4 +5,4 @@
  *
  */
 
-import Tooltip from "../components/common/Tooltip";
+import Button from "../../components/common/Button";
