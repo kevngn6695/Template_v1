@@ -74,7 +74,7 @@ const schema = z.object({
    * Certificate verification is always on; supply the CA when it is not in
    * the system trust store.
    */
-  DB_SSL: z.stringbool().default(false),
+  DB_SSL: z.coerce.boolean().default(false),
   DB_SSL_CA: z.string().optional(),
 
   /* --- Sessions and cookies ---------------------------------------------- */

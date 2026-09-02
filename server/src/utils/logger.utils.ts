@@ -41,6 +41,7 @@ import type { Level, StreamEntry } from 'pino';
 import PinoPretty from 'pino-pretty';
 
 import env from '@/config/env.config';
+
 import { serializeError } from '@/database/utils/errors.utils';
 
 /**
