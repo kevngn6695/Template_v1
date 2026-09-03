@@ -1,19 +1,21 @@
-@use "./app.sass"
-    
-*
-    box-sizzing: border-box
+@use "./mixin/index.mixin" as mixin
 
-    @include reset()
+*, *::before, *::after
+    box-sizing: border-box
+    @include mixin.reset()
     
 
 html
     scroll-behavior: smooth
+    
 
 body
-    padding: 0
-    margin: 0
     // background: var(--bg)
     // font: 16px 1.5
+    margin: 0
+    padding: 0
+    @include mixin.center(column, center, center)
+
 
 input, button, textarea, select
     font: inherit

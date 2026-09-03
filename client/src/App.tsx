@@ -7,6 +7,9 @@
 
 import React, { Suspense, lazy } from "react";
 
+// @ts-ignore
+import "./assets/app.sass";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Home = lazy(() => import("./pages/Home"));
