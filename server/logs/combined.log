@@ -57,3 +57,35 @@
 {"level":"debug","time":"2026-09-02T18:33:00.315Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
 {"level":"info","time":"2026-09-02T18:33:00.317Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
 {"level":"info","time":"2026-09-02T18:33:00.318Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-02T23:03:47.521Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-02T23:03:47.577Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-02T23:03:47.584Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-02T23:03:47.585Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-02T23:03:55.827Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"error","time":"2026-09-02T23:03:55.828Z","service":"server","env":"development","err":{"name":"Error","message":"Server is not running.","stack":"Error [ERR_SERVER_NOT_RUNNING]: Server is not running.\n    at Server.close (node:net:2358:12)\n    at Object.onceWrapper (node:events:632:28)\n    at Server.emit (node:events:518:28)\n    at emitCloseNT (node:net:2418:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)","pg":{"code":"ERR_SERVER_NOT_RUNNING"},"explanation":"Server is not running."},"msg":"Error during shutdown"}
+{"level":"info","time":"2026-09-02T23:03:56.193Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-02T23:03:56.236Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-02T23:03:56.237Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-02T23:03:56.238Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-02T23:05:43.760Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-02T23:05:43.799Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-02T23:05:43.800Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-02T23:05:43.801Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-02T23:06:13.398Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"error","time":"2026-09-02T23:06:13.399Z","service":"server","env":"development","err":{"name":"Error","message":"Server is not running.","stack":"Error [ERR_SERVER_NOT_RUNNING]: Server is not running.\n    at Server.close (node:net:2358:12)\n    at Object.onceWrapper (node:events:632:28)\n    at Server.emit (node:events:518:28)\n    at emitCloseNT (node:net:2418:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)","pg":{"code":"ERR_SERVER_NOT_RUNNING"},"explanation":"Server is not running."},"msg":"Error during shutdown"}
+{"level":"info","time":"2026-09-02T23:06:13.788Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-02T23:06:13.834Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-02T23:06:13.836Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-02T23:06:13.836Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-03T02:30:38.759Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-03T02:30:38.823Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-03T02:30:38.831Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-03T02:30:38.832Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-03T16:26:42.755Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-03T16:26:42.847Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-03T16:26:42.857Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-03T16:26:42.858Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}
+{"level":"info","time":"2026-09-03T16:30:43.090Z","service":"server","env":"development","msg":"Server is running on port http://localhost:5000 in development mode"}
+{"level":"debug","time":"2026-09-03T16:30:43.133Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-09-03T16:30:43.139Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-09-03T16:30:43.140Z","service":"server","env":"development","msg":"Server running at http://localhost:5000 in development mode"}

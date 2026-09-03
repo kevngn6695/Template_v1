@@ -34,11 +34,14 @@
  * @author Hiep Nguyen
  */
 
-import path from 'node:path';
+'use-strict';
+
+import path from 'path';
 
 import pino from 'pino';
-import type { Level, StreamEntry } from 'pino';
 import PinoPretty from 'pino-pretty';
+
+import type { Level, StreamEntry } from 'pino';
 
 import env from '@/config/env.config';
 
@@ -113,6 +116,16 @@ if (env.isProduction) {
     level: streamLevel,
     stream: PinoPretty({
       colorize: true,
+      customColors: {
+        info: 'blue',
+        warn: 'yellow',
+        error: 'red',
+        debug: 'cyan',
+        trace: 'gray',
+        fatal: 'magenta',
+        http: 'green',
+        silent: 'black',
+      },
       translateTime: 'HH:MM:ss',
       ignore: 'pid,hostname,service,env',
       singleLine: false,

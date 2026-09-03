@@ -39,7 +39,7 @@ function Admin() {
         />
       </Form>
       <Button
-        className="admin-btn"
+        className="admin btn"
         type="submit"
         onClick={function (): void {
           throw new Error("Function not implemented.");
