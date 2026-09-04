@@ -23,3 +23,35 @@
     align-items: $align
 
     @debug "center mixin called with direction: #{$direction}, justify: #{$justify}, align: #{$align}"
+
+
+/* [ Keyframe ] Animations - From To */
+@mixin effect_from_to($name,$from, $to)
+    @keyframe #(name)
+        from
+            @each $props, $val in $from
+                #{$props}: $val
+        to
+            @each $props, $val in $to
+                #{$props}: $val
+
+/* [ Keyframe ] Animation - Percentage */
+@mixin effect_percentage($name,$start, $mid, $end)
+    @keyframe #(name)
+        0%
+            @each $props, $val in $start
+                #{$props}: $val
+        50%
+            @each $props, $val in $mid
+                #{$props}: $val
+        100%
+            @each $props, $val in $end
+                #{$props}: $val
+
+/* [ Keyframe ] Animation - Symmetrical */
+@mixin effect_symmetric($name, $prop, $rest, $peak)
+    @keyframe #(name)
+        0%, 100%
+            #{$prop}: $val
+        50%
+            #{$prop}: $val
