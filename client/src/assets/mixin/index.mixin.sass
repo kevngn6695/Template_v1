@@ -35,6 +35,8 @@
             @each $props, $val in $to
                 #{$props}: $val
 
+        @debug "From-to #{$name} effect called"
+
 /* [ Keyframe ] Animation - Percentage */
 @mixin effect_percentage($name,$start, $mid, $end)
     @keyframe #(name)
@@ -48,6 +50,8 @@
             @each $props, $val in $end
                 #{$props}: $val
 
+        @debug "Percentage #{$name} effect called"
+
 /* [ Keyframe ] Animation - Symmetrical */
 @mixin effect_symmetric($name, $prop, $rest, $peak)
     @keyframe #(name)
@@ -55,3 +59,6 @@
             #{$prop}: $val
         50%
             #{$prop}: $val
+
+
+        @debug "Symetric #{$name} effect called"

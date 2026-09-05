@@ -45,7 +45,7 @@ function Admin() {
           throw new Error("Function not implemented.");
         }}
       >
-        Submit
+        Save
       </Button>
     </Dashboard>
   );
