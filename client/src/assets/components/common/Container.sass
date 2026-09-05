@@ -2,12 +2,12 @@
 @use "../../mixin/index.mixin" as mixin
 
 .ctn
-    min-height: 100vh
+    min-height: 90vh
     width: clamp(20rem, 90vw, 75rem)
     border-radius: 30px
     box-shadow: $regular-shadow
     transition: all $transition-duration-fast ease-in-out
-    
+
     @include mixin.center(column, center, center)
     
     &:hover

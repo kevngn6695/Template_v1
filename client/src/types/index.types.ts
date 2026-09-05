@@ -5,6 +5,8 @@
  *
  */
 
+import { ChangeEvent } from "react";
+
 /**
  * Common component props
  *
@@ -44,6 +46,7 @@ export interface LabelProps {
 export interface InputProps {
   value: string;
   className?: string;
+  placeholder?: string;
   type?:
     | "text"
     | "email"
@@ -55,7 +58,7 @@ export interface InputProps {
     | "date"
     | "time"
     | "url";
-  onChange: (value: string) => void;
+  onChange: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
   onSubmit: () => void;
 }
 
@@ -66,7 +69,7 @@ export interface ButtonProps {
   className?: string;
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 /**

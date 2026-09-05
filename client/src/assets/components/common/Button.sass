@@ -8,11 +8,11 @@
     border: none
     border-radius: 30px
     cursor: pointer
-    box-shadow: none
-    transition: all 0.3s ease-in-out
+    box-shadow: $regular-shadow
+    transition: all $transition-duration-fast ease-in-out
 
     @include stop-highlight-light()
 
     &:hover
-        box-shadow: $regular-shadow
+        box-shadow: none
 

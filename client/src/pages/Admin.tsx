@@ -13,9 +13,20 @@ import Form from "../components/common/Form";
 import Button from "../components/common/Button";
 
 function Admin() {
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState<null | boolean>(null);
+  const [name, setName] = useState("");
 
   useEffect(() => {}, []);
+
+  const handleSubmit = (): void => {
+    if (!name.trim()) return;
+
+    setLoading(true);
+    setName("");
+    setLoading(false);
+    console.log("submit:", name);
+  };
+
   return (
     <Dashboard className="admin-dashboard">
       <Form
@@ -23,30 +34,19 @@ function Admin() {
         action=""
         autoComplete="off"
         name="admin-form"
-        onSubmit={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        onSubmit={handleSubmit}
       >
         <Input
-          className="admin-input"
-          value={""}
-          onChange={function (value: string): void {
-            throw new Error("Function not implemented.");
-          }}
-          onSubmit={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          className="admin"
+          placeholder="Enter name"
+          value={name}
+          onChange={setName}
+          onSubmit={handleSubmit}
         />
+        <Button className="admin" type="submit">
+          Save
+        </Button>
       </Form>
-      <Button
-        className="admin btn"
-        type="submit"
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      >
-        Save
-      </Button>
     </Dashboard>
   );
 }
