@@ -1,0 +1,142 @@
+@use "sass:map"
+@use "../mixin/index.mixin"
+
+$dir: "../../fonts/" !default
+
+$weight: (
+    100: "Thin", 
+    200: "ExtraLight", 
+    300: "Light", 
+    400: "Regular", 
+    500: "Medium", 
+    600: "SemiBold", 
+    700: "Bold", 
+    800: "ExtraBold", 
+    900: "Black"
+)
+
+$all: (100, 200, 300, 400, 500, 600, 700, 800, 900)
+ 
++family("Gelion", $weights: (400, 500, 700))
++family("Lexend Deca", "LexendDeca", (100, 200, 400, 500, 600, 700, 900))
++family("Poppins", $weights: $all, $italics: $all)
++family("Montserrat", $weights: $all, $italics: $all)
+
+// /* Gelion Font: Defines font-face rules for Gelion font family. */
+// @font-face
+//     font-family: "Gelion"
+//     src: url('../media/fonts/Gelion-Regular.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Gelion_Medium"
+//     src: url('../../src/fonts/Gelion-Medium.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Gelion_Bold"
+//     src: url('../../src/fonts/Gelion-Bold.ttf') format('truetype')
+
+// /* LexendDeca Font: Defines font-face rules for LexendDeca font family */
+// @font-face
+//     font-family: "LexendDeca"
+//     src: url('../../src/fonts/LexendDeca-Regular.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Black"
+//     src: url('../../src/fonts/LexendDeca-Black.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Bold"
+//     src: url('../../src/fonts/LexendDeca-Bold.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Extra_Bold"
+//     src: url('../../src/fonts/LexendDeca-Extra-Bold.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Extra_Light"
+//     src: url('../../src/fonts/LexendDeca-Extra-Light.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Semi_Bold"
+//     src: url('../../src/fonts/LexendDeca-Semi-Bold.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Thin"
+//     src: url('../../src/fonts/LexendDeca-Thin.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Medium"
+//     src: url('../../src/fonts/LexendDeca-Medium.ttf') format('truetype')
+
+// @font-face
+//     font-family: "LexendDeca_Bold"
+//     src: url('../../src/fonts/LexendDeca-Bold.ttf') format('truetype')
+
+/* Poppins Font: Defines font-face rules for Poppins font family. */
+// @font-face
+//     font-family: "Poppins"
+//     src: url('../../src/fonts/Poppins-Regular.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Black"
+//     src: url('../../src/fonts/Poppins-Black.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Black_Italic"
+//     src: url('../../src/fonts/Poppins-Black-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Bold"
+//     src: url('../../src/fonts/Poppins-Bold.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Bold_Italic"
+//     src: url('../../src/fonts/Poppins-Bold-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Extra_Bold"
+//     src: url('../../src/fonts/Poppins-Extra-Bold.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Extra_Bold_Italic"
+//     src: url('../../src/fonts/Poppins-Extra-Bold-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Extra_Light"
+//     src: url('../../src/fonts/Poppins-Extra-Light.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Extra_Light_Italic"
+//     src: url('../../src/fonts/Poppins-Extra-Light-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Italic"
+//     src: url('../../src/fonts/Poppins-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Semi_Bold"
+//     src: url('../../src/fonts/Poppins-Semi-Bold.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Semi_Bold_Italic"
+//     src: url('../../src/fonts/Poppins-Semi-Bold-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Thin"
+//     src: url('../../src/fonts/Poppins-Thin.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Thin_Italic"
+//     src: url('../../src/fonts/Poppins-Thin-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Medium"
+//     src: url('../../src/fonts/Poppins-Medium.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Medium_Italic"
+//     src: url('../../src/fonts/Poppins-Medium-Italic.ttf') format('truetype')
+
+// @font-face
+//     font-family: "Poppins_Bold"
+//     src: url('../../src/fonts/Poppins-Bold.ttf') format('truetype')

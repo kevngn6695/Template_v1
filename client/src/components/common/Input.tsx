@@ -3,7 +3,7 @@ import React from "react";
 import { InputProps } from "../../types/index.types";
 
 // @ts-ignore
-import "../../assets/components/common/Input.sass";
+import "../../assets/styles/components/common/Input.sass";
 
 function Input({
   value,

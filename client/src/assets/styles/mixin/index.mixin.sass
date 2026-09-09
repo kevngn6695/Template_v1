@@ -1,0 +1,85 @@
+@use "../components/init"
+
+/**/
+@mixin reset()
+    padding: 0
+    margin: 0
+
+    @debug "reset mixin called"
+
+/**/
+@mixin stop-highlight-light()
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+    @debug "stop-highlight-light mixin called"
+
+/**/
+@mixin center($direction: both, $justify: center, $align: center)
+    display: flex
+    flex-direction: $direction
+    justify-content: $justify
+    align-items: $align
+    
+    @debug "center mixin called with direction: #{$direction}, justify: #{$justify}, align: #{$align}"
+
+
+/* [ Keyframe ] Animations - From To */
+@mixin effect_from_to($name,$from, $to)
+    @keyframe #(name)
+        from
+            @each $props, $val in $from
+                #{$props}: $val
+        to
+            @each $props, $val in $to
+                #{$props}: $val
+
+        @debug "From-to #{$name} effect called"
+
+/**/
+@mixin face($family, $file, $weight, $style: normal, $suffix: "")
+    @font-face
+        font-family: $family
+        src: url("#{$dir}/#{$file}-#{map.get($weights, $weight)}#{$suffix}.ttf") format("truetype")
+        font-weight: $weight
+        font-style: $style
+        // Show fallback text immediately, then swap. Without it the browser hides
+        // the text for up to 3s while the file downloads.
+        font-display: swap
+ 
+@mixin family($family, $file: $family, $weights: (400, 700), $italics: ())
+    @each $w in $weights
+        +face($family, $file, $w)
+    @each $w in $italics
+        +face($family, $file, $w, italic, "Italic")
+
+
+/* [ Keyframe ] Animation - Percentage */
+@mixin effect_percentage($name,$start, $mid, $end)
+    @keyframe #(name)
+        0%
+            @each $props, $val in $start
+                #{$props}: $val
+        50%
+            @each $props, $val in $mid
+                #{$props}: $val
+        100%
+            @each $props, $val in $end
+                #{$props}: $val
+
+        @debug "Percentage #{$name} effect called"
+
+/* [ Keyframe ] Animation - Symmetrical */
+@mixin effect_symmetric($name, $prop, $rest, $peak)
+    @keyframe #(name)
+        0%, 100%
+            #{$prop}: $val
+        50%
+            #{$prop}: $val
+
+
+        @debug "Symetric #{$name} effect called"
+
+

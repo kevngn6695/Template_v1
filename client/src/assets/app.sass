@@ -1,9 +1,11 @@
-@use "./mixin/index.mixin" as mixin
+@use "./styles/components/init" as *
+@use "./styles/mixin/index.mixin" as mixin
 
 *, *::before, *::after
     box-sizing: border-box
     
-    @include mixin.reset()
+    
+    +mixin.reset()
     
 
 html
@@ -12,12 +14,18 @@ html
 
 body
     // background: var(--bg)
-    // font: 16px 1.5
+    font-family: $font-family
     margin: 0
     padding: 0
 
-    @include mixin.center(column, center, center)
+    +mixin.center(column, center, center)
 
+img, picture, video, canvas, svg
+    display: block
+    max-width: 100%
 
 input, button, textarea, select
     font: inherit
+
+:is(p, h1, h2, h3, h4, h5, h6)
+    overflow-wrap: break-word

@@ -1,7 +1,7 @@
 import React from "react";
 
 // @ts-ignore: Sass files are not typed in this project.
-import "../../assets/components/common/Button.sass";
+import "../../assets/styles/components/common/Button.sass";
 
 import { ButtonProps } from "../../types/index.types";
 

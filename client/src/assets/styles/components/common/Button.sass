@@ -1,0 +1,19 @@
+@use "../init.sass" as *
+@use "../../mixin/index.mixin.sass" as *
+
+.btn
+    background: $bg
+    width: calc($width / 8)
+    height: calc($height / 16)
+    border: none
+    border-radius: 30px
+    cursor: pointer
+    text-box: trim-both cap alphabetic
+    box-shadow: $regular-shadow
+    transition: all $transition-duration-fast ease-in-out
+
+    @include stop-highlight-light()
+
+    &:hover
+        box-shadow: none
+
