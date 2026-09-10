@@ -78,7 +78,21 @@ export interface ButtonProps {
 
 export interface TooltipProps {
   className?: string;
+  /** The element the tooltip is anchored to. */
   children: React.ReactNode;
+  /** Tooltip content. Nothing renders while this is empty. */
+  text?: React.ReactNode;
+  /** Colour/semantics of the bubble. */
+  status?: "info" | "error" | "success";
+  /**
+   * Controlled visibility. Leave undefined for the plain hover/focus tooltip;
+   * pass a boolean to drive it from state (validation errors, confirmations).
+   */
+  open?: boolean;
+  /** Side of the anchor the bubble sits on. */
+  position?: "top" | "bottom" | "left" | "right";
+  /** Auto-hide after this many ms. 0 keeps it up until `open` goes false. */
+  duration?: number;
 }
 
 /**

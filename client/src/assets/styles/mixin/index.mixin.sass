@@ -7,8 +7,20 @@
 
     @debug "reset mixin called"
 
-/**/
-@mixin stop-highlight-light()
+
+/* [In progress] */
+// @mixin highlight-light($color)
+//     -webkit-user-select: none
+//     -moz-user-select: none
+//     -ms-user-select: none
+//     user-select: none
+
+//     @debug "highlight-light mixin called with color: #{$color}"
+
+/*
+    
+*/
+@mixin unable-highlight-light()
     -webkit-user-select: none
     -moz-user-select: none
     -ms-user-select: none
@@ -16,7 +28,11 @@
 
     @debug "stop-highlight-light mixin called"
 
-/**/
+
+// @param {String} $direction - The flex direction (default: both).
+// @param {String} $justify - The justify-content value (default: center).
+// @param {String} $align - The align-items value (default: center).    
+
 @mixin center($direction: both, $justify: center, $align: center)
     display: flex
     flex-direction: $direction
@@ -27,6 +43,10 @@
 
 
 /* [ Keyframe ] Animations - From To */
+// @param {String} $name - The name of the animation.
+// @param {Map} $from - A map of CSS properties and values for the starting state.
+// @param {Map} $to - A map of CSS properties and values for the
+
 @mixin effect_from_to($name,$from, $to)
     @keyframe #(name)
         from
@@ -38,7 +58,13 @@
 
         @debug "From-to #{$name} effect called"
 
-/**/
+
+// @param {String} $family - The font family name.
+// @param {String} $file - The font file name (without extension).
+// @param {Number} $weight - The font weight (e.g., 400, 700).
+// @param {String} $style - The font style (default: normal).
+// @param {String} $suffix - Optional suffix for the font file name (default:    
+
 @mixin face($family, $file, $weight, $style: normal, $suffix: "")
     @font-face
         font-family: $family
@@ -49,6 +75,11 @@
         // the text for up to 3s while the file downloads.
         font-display: swap
  
+//  @param {String} $family - The font family name.
+//  @param {String} $file - The font file name (without extension).
+//  @param {List} $weights - A list of font weights to include (default: (400, 700)).
+//  @param {List} $italics - A list of font weights to include as italic (default: empty).    
+
 @mixin family($family, $file: $family, $weights: (400, 700), $italics: ())
     @each $w in $weights
         +face($family, $file, $w)
