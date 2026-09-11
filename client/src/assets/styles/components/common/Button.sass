@@ -3,8 +3,8 @@
 
 .btn
     background: $bg
-    width: calc($width / 8)
-    height: calc($height / 16)
+    width: clamp(calc($width / 8), 10rem, 20rem)
+    height: clamp(calc($height / 16), 3rem, 5rem)
     border: none
     border-radius: 30px
     cursor: pointer

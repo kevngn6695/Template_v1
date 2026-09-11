@@ -12,8 +12,8 @@ import "./assets/app.sass";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-const Home = lazy(() => import("./Pages/Home"));
-const Admin = lazy(() => import("./Pages/Admin"));
+const Home = lazy(() => import("./pages/Home"));
+const Admin = lazy(() => import("./pages/Admin"));
 
 /**
  *

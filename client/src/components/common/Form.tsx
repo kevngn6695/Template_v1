@@ -1,5 +1,8 @@
 import React from "react";
 
+// @ts-ignore: Sass files are not typed in this project.
+import "../../assets/styles/components/common/Form.sass";
+
 import { FormProps } from "../../types/index.types";
 
 function Form({
