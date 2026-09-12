@@ -68,6 +68,7 @@ export interface InputProps {
 export interface ButtonProps {
   className?: string;
   children: React.ReactNode;
+  disabled?: boolean;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
 }
