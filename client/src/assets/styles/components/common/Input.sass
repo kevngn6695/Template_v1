@@ -2,16 +2,25 @@
 @use "../../mixin/index.mixin" as mixin
     
 .input
-    border-radius: 30px
+    // border-radius: 30px
+    content: ""
     border: none
     width: 20rem
     height: 3rem
-    padding: 20px
+    padding: 10px
     margin: 10px
-    transition: all $transition-duration-fast ease-in-out
+    outline: none
+    box-shadow: none
+    transition: all $transition-duration-fast ease
 
     +mixin.unable-highlight-light()
 
     &:hover
-        border: 0.5px solid black
-    
+        border-bottom: 1px solid black
+        outline: none
+        box-shadow: none
+        transition: none
+
+    &:focus, &:active
+        border-bottom: 1px solid black
+        

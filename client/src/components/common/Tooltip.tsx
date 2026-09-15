@@ -21,12 +21,13 @@ function Tooltip({
   position = "top",
   duration = 0,
 }: TooltipProps) {
-  // No `open` prop => the plain hover tooltip. With one, the parent owns visibility.
+  // [ Before ] No `open` prop => the plain hover tooltip. With one, the parent owns visibility.
   const controlled = open !== undefined;
 
   const [hovered, setHovered] = useState(false);
   const [expired, setExpired] = useState(false);
 
+  // [ After ]
   useEffect(() => {
     if (!controlled || !open || duration <= 0) return;
 

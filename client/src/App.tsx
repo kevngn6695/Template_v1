@@ -12,6 +12,8 @@ import "./assets/app.sass";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import Loading from "./components/common/Loading";
+
 const Home = lazy(() => import("./pages/Home"));
 const Admin = lazy(() => import("./pages/Admin"));
 
@@ -23,7 +25,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading>Loading...</Loading>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />

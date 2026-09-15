@@ -120,3 +120,13 @@ export interface DashboardProps {
   className?: string;
   children: React.ReactNode;
 }
+
+/**
+ * Toaster component props
+ */
+export interface ToasterProps {
+  className?: string;
+  children?: React.ReactNode;
+  content?: string;
+  title?: string;
+}
