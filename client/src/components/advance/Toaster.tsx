@@ -8,22 +8,38 @@ import { ToasterProps } from "../../types/index.types";
 import "../../assets/Styles/components/Advance/Toaster.sass";
 
 function Toaster({ className, children, title, content = "" }: ToasterProps) {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) {
+    return null;
+  }
+
   return (
-    <Container className={`${className} toaster`}>
-      {children || (
-        <>
-          <div className="toaster_content wrapper">
-            <div className="toaster_icon wrapper">
-              <span className="toaster_icon"></span>
+    <>
+      <Container className={`${className} toaster`}>
+        {children || (
+          <>
+            <div className="toaster_content wrapper">
+              <div className="toaster_icon wrapper">
+                <span className="toaster_icon"></span>
+              </div>
+              <div className="toaster_body">
+                <h6 className="toaster_text">{title}</h6>
+                <p className="toaster_description">{content}</p>
+              </div>
             </div>
-            <div className="toaster_body">
-              <h6 className="toaster_text">{title}</h6>
-              <p className="toaster_description">{content}</p>
-            </div>
-          </div>
-        </>
-      )}
-    </Container>
+          </>
+        )}
+      </Container>
+    </>
   );
 }
 

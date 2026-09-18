@@ -1,30 +1,30 @@
-/** 
+/**
  * @copyright 2026 - present, Heniseeyou, LLC
  * @license Apache-2.0
  * @author Hiep Nguyen
- * 
+ *
  */
 
-import { Router } from "express";
+import { Router } from 'express';
 
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.status(200).json({
-    status: "OK",
+    status: 'OK',
     success: true,
-    version: "1.0.0",
-    message: "ON AIR",
+    version: '1.0.0',
+    message: 'ON AIR',
     timestamp: new Date().toISOString(),
   });
 });
 
-router.get("/health", (req, res) => {
+router.get('/health', (req, res) => {
   res.status(200).json({
-    status: "OK",
+    status: 'OK',
     success: true,
-    version: "1.0.0",
-    message: "ON AIR",
+    version: '1.0.0',
+    message: 'ON AIR',
     timestamp: new Date().toISOString(),
   });
 });
