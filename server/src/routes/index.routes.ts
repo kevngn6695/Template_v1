@@ -15,6 +15,12 @@ router.get('/', (req, res) => {
     success: true,
     version: '1.0.0',
     message: 'ON AIR',
+    endpoints: {
+      createGreeting: 'GET /api/v1/greetings',
+      listGreeting: 'GET /api/v1/greetings?limit=10&page=1&offset=0&search=',
+      getGreeting: 'GET /api/v1/greetings/:id',
+      deleteGreeting: 'DELETE /api/v1/greetings/:id',
+    },
     timestamp: new Date().toISOString(),
   });
 });

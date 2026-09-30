@@ -11,7 +11,7 @@
     margin: 10px
     outline: none
     box-shadow: none
-    transition: all $transition-duration-fast ease
+    transition: all $transition-duration-slow ease
 
     +mixin.unable-highlight-light()
 
@@ -19,7 +19,8 @@
         border-bottom: 1px solid black
         outline: none
         box-shadow: none
-        transition: none
+        // transition: none
+        // transition: all $transition-duration-slow ease
 
     &:focus, &:active
         border-bottom: 1px solid black
