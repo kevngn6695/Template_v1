@@ -1,0 +1,5 @@
+$kind: http-request
+name: DELETE /auth/
+url: "{{Base_Url}}/auth/"
+method: DELETE
+order: 4072499582654046

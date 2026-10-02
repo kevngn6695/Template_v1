@@ -1,0 +1,5 @@
+$kind: http-request
+name: PUT /auth/
+url: "{{Base_Url}}/auth/"
+method: PUT
+order: 4021430463338194

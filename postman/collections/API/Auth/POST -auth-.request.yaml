@@ -1,0 +1,5 @@
+$kind: http-request
+name: POST /auth/
+url: "{{Base_Url}}/auth/"
+method: POST
+order: 3596659845245731

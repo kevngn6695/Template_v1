@@ -528,3 +528,239 @@
 {"level":"info","time":"2026-10-02T17:22:08.390Z","service":"server","env":"development","msg":"HTTP server closed"}
 {"level":"info","time":"2026-10-02T17:22:08.391Z","service":"server","env":"development","msg":"Postgres pool closed"}
 {"level":"info","time":"2026-10-02T17:22:08.391Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T21:44:13.488Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T21:44:13.497Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T21:44:13.499Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:10:42.847Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:10:42.861Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:10:42.864Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:10:42.865Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:10:43.801Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:10:43.819Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:10:43.821Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:27:31.245Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:27:31.247Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:27:31.247Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:27:31.248Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:27:31.759Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:27:31.762Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:27:31.764Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:30:35.825Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:30:35.831Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:30:35.832Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:30:35.832Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:30:36.609Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:30:36.613Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:30:36.614Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:31:07.220Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:31:07.221Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:31:07.221Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:31:07.222Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:31:07.948Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:31:07.951Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:31:07.953Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:33:32.725Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:33:32.727Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:33:32.728Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:33:32.729Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:33:33.417Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:33:33.421Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:33:33.422Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:33:33.747Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:33:33.748Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:33:33.748Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:33:33.749Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:33:34.258Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:33:34.261Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:33:34.262Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:29.003Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:29.006Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:29.007Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:29.007Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:29.756Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:29.759Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:29.760Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:37.287Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:37.288Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:37.289Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:37.289Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:37.873Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:37.876Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:37.878Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:44.375Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:44.376Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:44.377Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:44.377Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:45.080Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:45.083Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:45.084Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:45.254Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:45.254Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:45.255Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:45.255Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:45.731Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:45.735Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:45.736Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:50.767Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:50.768Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:50.768Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:50.769Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:51.331Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:51.334Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:51.336Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:53.703Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:53.704Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:53.705Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:53.705Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:54.211Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:54.214Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:54.215Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:57.035Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:57.036Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:57.037Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:57.037Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:57.649Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:57.652Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:57.653Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:34:57.856Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:34:57.857Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:34:57.858Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:34:57.858Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:34:58.665Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:34:58.668Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:34:58.669Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"error","time":"2026-10-02T23:35:09.943Z","service":"server","env":"development","err":{"name":"Error","message":"ENOENT: no such file or directory, stat '/Users/kevroo/Desktop/Template_v1/server/src/main/client/build/index.html'","stack":"Error: ENOENT: no such file or directory, stat '/Users/kevroo/Desktop/Template_v1/server/src/main/client/build/index.html'","pg":{"code":"ENOENT"},"explanation":"ENOENT: no such file or directory, stat '/Users/kevroo/Desktop/Template_v1/server/src/main/client/build/index.html'"},"msg":"Unhandled request error"}
+{"level":"error","time":"2026-10-02T23:35:09.947Z","service":"server","env":"development","req":{"id":"e2419aab-0645-4e59-9000-554f553a0302","method":"GET","url":"/","query":{},"params":"[redacted]","headers":{"cache-control":"no-cache","postman-token":"c9c515fe-8056-446f-8bfc-40d73027451a","content-type":"application/json","host":"localhost:5001","user-agent":"PostmanRuntime/2.3.4","accept":"*/*","accept-encoding":"gzip, deflate, br","connection":"keep-alive"},"remoteAddress":"::1","remotePort":56210},"res":{"statusCode":500,"headers":{"cross-origin-opener-policy":"same-origin","cross-origin-resource-policy":"same-origin","origin-agent-cluster":"?1","referrer-policy":"no-referrer","strict-transport-security":"max-age=31536000; includeSubDomains","x-content-type-options":"nosniff","x-dns-prefetch-control":"off","x-download-options":"noopen","x-frame-options":"SAMEORIGIN","x-permitted-cross-domain-policies":"none","x-xss-protection":"0","vary":"Origin, Accept-Encoding","access-control-allow-credentials":"true","x-request-id":"e2419aab-0645-4e59-9000-554f553a0302","content-type":"application/json; charset=utf-8","content-length":"134","etag":"W/\"86-snCYdPQjGCOAp0Ui2ogpZ7oQV+Q\""}},"err":{"type":"Error","message":"failed with status code 500","stack":"Error: failed with status code 500\n    at onResFinished (/Users/kevroo/Desktop/Template_v1/server/node_modules/pino-http/logger.js:115:39)\n    at ServerResponse.onResponseComplete (/Users/kevroo/Desktop/Template_v1/server/node_modules/pino-http/logger.js:178:14)\n    at ServerResponse.emit (node:events:530:35)\n    at onFinish (node:_http_outgoing:1081:10)\n    at callback (node:internal/streams/writable:766:21)\n    at afterWrite (node:internal/streams/writable:710:5)\n    at afterWriteTick (node:internal/streams/writable:696:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)"},"responseTime":5,"msg":"request errored"}
+{"level":"info","time":"2026-10-02T23:35:19.410Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:35:19.411Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:35:19.411Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:35:19.411Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:35:20.095Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:35:20.100Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:35:20.101Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:38:41.764Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:38:41.766Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:38:41.766Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:38:41.767Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:38:42.544Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:38:42.547Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:38:42.548Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:39:03.918Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:39:03.919Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:39:03.920Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:39:03.920Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:39:04.553Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:39:04.557Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:39:04.558Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:40:22.369Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:40:22.371Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:40:22.371Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:40:22.371Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:40:23.224Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:40:23.228Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:40:23.229Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:40:40.726Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:40:40.728Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:40:40.729Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:40:40.729Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:40:41.387Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:40:41.389Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:40:41.391Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:40:41.634Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:40:41.635Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:40:41.636Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:40:41.636Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:40:42.172Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:40:42.177Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:40:42.179Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:06.469Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:06.470Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:06.471Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:06.471Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:07.154Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:07.157Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:07.158Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:18.294Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:18.294Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:18.295Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:18.295Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:18.930Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:18.933Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:18.934Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:20.296Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:20.296Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:20.297Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:20.297Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:20.847Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:20.851Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:20.852Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:23.005Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:23.006Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:23.007Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:23.007Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:23.541Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:23.544Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:23.545Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:23.859Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:23.859Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:23.860Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:23.861Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:24.292Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:24.303Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:24.305Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:46.183Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:46.184Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:46.185Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:46.185Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:46.871Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:46.874Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:46.875Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:41:53.866Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:41:53.866Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:41:53.867Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:41:53.867Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:41:54.516Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:41:54.519Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:41:54.521Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:42:03.677Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:42:03.678Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:42:03.678Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:42:03.678Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:42:04.234Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:42:04.237Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:42:04.238Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:42:43.624Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:42:43.625Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:42:43.626Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:42:43.626Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:42:44.322Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:42:44.326Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:42:44.327Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:42:52.856Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:42:52.856Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:42:52.857Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:42:52.857Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:42:53.525Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:42:53.528Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:42:53.529Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:43:04.604Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:43:04.605Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:43:04.606Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:43:04.606Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:43:05.328Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:43:05.331Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:43:05.333Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:43:11.128Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:43:11.129Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:43:11.130Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:43:11.130Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:43:11.711Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:43:11.714Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:43:11.715Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:43:19.803Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:43:19.804Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:43:19.805Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:43:19.805Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:43:20.439Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:43:20.442Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:43:20.444Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}

@@ -1,6 +1,6 @@
 $kind: http-request
-name: New Request
-url: "{{Base_Url}}/api/health"
+name: GET /auth/
+url: "{{Base_Url}}/auth/"
 method: GET
 body:
   type: json
