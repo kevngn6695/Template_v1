@@ -14,7 +14,7 @@ import logger from '@/utils/logger.utils';
 import { connectDatabase, disconnectDatabase } from './database/db';
 
 /* -------------------------------------------------------------------------- */
-/* Boot                                                                        */
+/* Boot                                                                       */
 /* -------------------------------------------------------------------------- */
 
 let server: Server | undefined;
@@ -36,7 +36,7 @@ async function start(): Promise<void> {
 
     server = app.listen(env.PORT, () => {
       logger.info(
-        `Server running at http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
+        `✅ Server running at http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
       );
     });
   } catch (err) {
@@ -58,7 +58,7 @@ async function start(): Promise<void> {
 void start();
 
 /* -------------------------------------------------------------------------- */
-/* Shutdown                                                                    */
+/* Shutdown                                                                   */
 /* -------------------------------------------------------------------------- */
 
 let shuttingDown = false;

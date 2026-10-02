@@ -39,6 +39,10 @@ import limiter from '@/utils/rate_limit.utils';
 import type { CorsOptions } from 'cors';
 import type { Response, Request, NextFunction } from 'express';
 
+import index from '@/routes/index.routes';
+import authRoute from '@/routes/auth/auth.routes';
+import greetingsRoute from '@/routes/greetings/greetings.routes';
+
 const app = express();
 
 /* -------------------------------------------------------------------------- */
@@ -126,7 +130,10 @@ app.use(compression({ threshold: 1024 }));
 /* Routes                                                                      */
 /* -------------------------------------------------------------------------- */
 
+app.use('/api', index);
+app.use('/api/v1/greetings', greetingsRoute);
 app.use('/api/auth', limiter);
+app.use('/auth', authRoute);
 
 /**
  * Request logging with an id on every line, so one request's entries can be
@@ -178,13 +185,6 @@ app.use(
   })
 );
 
-// No route
-app.use((req: Request, res: Response) => {
-  res
-    .status(404)
-    .json({ error: `No route for ${req.method} ${req.originalUrl}` });
-});
-
 /**
  * Body parsing.
  *
@@ -222,7 +222,12 @@ const BODY_PARSER_MESSAGES: Record<string, string> = {
  * to stay even though it is unused. Without this, Express's default handler
  * replies with an HTML page and leaks the stack trace outside production.
  */
-app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
+const handleRequestError = (
+  err: unknown,
+  _req: Request,
+  res: Response,
+  _next: NextFunction
+): void => {
   const clientStatus = bodyParserStatus(err);
 
   if (clientStatus !== null) {
@@ -239,7 +244,7 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   res.status(500).json({
     error: env.isProduction ? 'Internal server error' : String(err),
   });
-});
+};
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -248,11 +253,13 @@ app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
 });
 
-// Server configuration and middleware setup can be added here
-app.listen(env.PORT, () => {
-  logger.info(
-    `Server is running on port http://localhost:${env.PORT} in ${env.NODE_ENV} mode`
-  );
+// Keep the not-found and error handlers after every route and static handler.
+app.use((req: Request, res: Response) => {
+  res
+    .status(404)
+    .json({ error: `No route for ${req.method} ${req.originalUrl}` });
 });
+
+app.use(handleRequestError);
 
 export default app;

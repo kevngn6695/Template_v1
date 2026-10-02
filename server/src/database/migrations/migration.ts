@@ -31,6 +31,7 @@ import {
 } from '@/database/utils/errors.utils';
 
 import * as migration001 from '@/database/migrations/controllers/001_migration_table.controller';
+import * as migration002 from '@/database/migrations/controllers/002_greetings.controller';
 
 /* -------------------------------------------------------------------------- */
 /* Registry                                                                    */
@@ -82,6 +83,7 @@ export type MigrationRegistry = Record<string, Migration>;
  */
 export const migrations: MigrationRegistry = {
   '001_migration_table': migration001,
+  '002_greetings': migration002,
 };
 
 /**

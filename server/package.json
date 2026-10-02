@@ -5,9 +5,10 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:up": "tsx src/database/cli/migration.ts up",
-    "db:down": "tsx src/database/cli/migration.ts down",
-    "db:fresh": "tsx src/database/cli/migration.ts fresh",
+    "db:status": "tsx src/database/cli/init.ts status",
+    "db:up": "tsx src/database/cli/init.ts up",
+    "db:down": "tsx src/database/cli/init.ts down",
+    "db:fresh": "tsx src/database/cli/init.ts fresh",
     "db:start": "npm run db:up",
     "db:reset": "npm run db:fresh",
     "server": "nodemon",

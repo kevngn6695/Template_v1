@@ -113,8 +113,7 @@ npx tsx src/database/cli/init.ts status   # shows what's pending
 npx tsx src/database/cli/init.ts up       # applies everything
 ```
 
-Use `npx tsx src/database/cli/init.ts`, **not** `npm run db:up` — see
-[Known issues](#known-issues).
+You can also run `npm run db:up` from `server`.
 
 ---
 
@@ -129,6 +128,12 @@ npm run server        # nodemon + tsx, restarts on changes under src/
 
 Listens on `PORT` from `.env` (default `5000`) and logs
 `Server running at http://localhost:5000 in development mode`.
+
+With the database migrations applied, retrieve greeting data in Postman with
+`GET http://localhost:5000/api/v1/greetings`. Optional query parameters are
+`limit` (1-100), `page` (starting at 1), `offset` (overrides the page offset),
+and `search` (matches greeting names). Use
+`GET http://localhost:5000/api/v1/greetings/:id` to retrieve one greeting.
 
 > **macOS:** port 5000 is taken by the AirPlay Receiver (`ControlCenter`). Requests to
 > `localhost:5000` are silently answered by AirTunes with `403` instead of reaching your API.
@@ -283,44 +288,25 @@ scaffolding defaults:
 
 Real, reproducible problems in the current tree. Worth fixing before building on this.
 
-1. **The API answers `404` to everything.** In `main/App.ts` the catch-all 404 handler is
-   registered *before* the error handler, the static file middleware, and the SPA fallback, so
-   nothing below it is ever reached. `curl localhost:5000/` returns
-   `{"error":"No route for GET /"}`. Move the 404 handler so it sits after all real routes and
-   before the error handler.
-
-2. **`routes/index.routes.ts` is never mounted.** It defines `/` and `/health`, but no file
-   imports it, so those endpoints do not exist. Add `app.use('/api', router)` in `App.ts`.
-
-3. **The server starts two listeners.** `App.ts` calls `app.listen()` at module load *and*
-   `server.ts` calls it again after connecting to the database — you can see both log lines on
-   every boot. Delete the `app.listen()` in `App.ts`; it also breaks the Supertest contract
-   that file's own docblock describes.
-
-4. **The `db:*` scripts point at a missing file.** They reference
-   `src/database/cli/migration.ts`, which does not exist — the CLI is `src/database/cli/init.ts`.
-   Also, `server/.env` tells you to run `npm run db:status`, but no such script is defined.
-   Fix: point the scripts at `init.ts` and add `db:status`.
-
-5. **`server/.env` is committed** even though `server/.gitignore` excludes `.env`, because it
+1. **`server/.env` is committed** even though `server/.gitignore` excludes `.env`, because it
    was tracked before the ignore rule was added. Anything ever put in it is in git history
    permanently. Run `git rm --cached server/.env`, rename the committed copy to `.env.example`,
    and rotate any credential that was in it. The root README previously told you to
    `cp server/.env.example server/.env`; no such file exists yet.
 
-6. **Client tests never run.** The files are named `*.tests.ts` (plural) — CRA's Jest only
-   matches `*.test.{js,ts,tsx}` and `__tests__/`. They are also `.ts`, not `.tsx`, so they
-   cannot contain JSX. Rename to `*.test.tsx`.
+2. **Client tests never run.** The files are named `*.tests.ts` (plural) — CRA's Jest only
+    matches `*.test.{js,ts,tsx}` and `__tests__/`. They are also `.ts`, not `.tsx`, so they
+    cannot contain JSX. Rename to `*.test.tsx`.
 
-7. **`server/src/tests/init.test.ts` is empty**, so Vitest has nothing to run.
+3. **`server/src/tests/init.test.ts` is empty**, so Vitest has nothing to run.
 
-8. **The GitHub Actions workflow does nothing.** `.github/workflow/deploy.yml` is an empty file,
-   and the directory must be `.github/workflows/` (plural) for GitHub to find it at all.
+4. **The GitHub Actions workflow does nothing.** `.github/workflow/deploy.yml` is an empty file,
+    and the directory must be `.github/workflows/` (plural) for GitHub to find it at all.
 
-9. **License is inconsistent.** `LICENSE` and every source header say Apache-2.0;
-   `server/package.json` agrees, but the root `package.json` says ISC. Make the root match.
+5. **License is inconsistent.** `LICENSE` and every source header say Apache-2.0;
+    `server/package.json` agrees, but the root `package.json` says ISC. Make the root match.
 
-10. **`Headng.tsx` is misspelled** (`client/src/components/common/Headng.tsx`), and every import
+6. **`Headng.tsx` is misspelled** (`client/src/components/common/Headng.tsx`), and every import
     of it carries the typo.
 
 ---
