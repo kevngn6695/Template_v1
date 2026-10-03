@@ -764,3 +764,17 @@
 {"level":"debug","time":"2026-10-02T23:43:20.439Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
 {"level":"info","time":"2026-10-02T23:43:20.442Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
 {"level":"info","time":"2026-10-02T23:43:20.444Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:44:10.630Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:44:10.631Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:44:10.632Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:44:10.632Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:44:11.393Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:44:11.396Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:44:11.398Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
+{"level":"info","time":"2026-10-02T23:44:29.714Z","service":"server","env":"development","msg":"SIGTERM received, shutting down gracefully…"}
+{"level":"info","time":"2026-10-02T23:44:29.714Z","service":"server","env":"development","msg":"HTTP server closed"}
+{"level":"info","time":"2026-10-02T23:44:29.715Z","service":"server","env":"development","msg":"Postgres pool closed"}
+{"level":"info","time":"2026-10-02T23:44:29.715Z","service":"server","env":"development","msg":"Shutdown complete"}
+{"level":"debug","time":"2026-10-02T23:44:30.430Z","service":"server","env":"development","msg":"✅ Connected to localhost:5432/kevroo database successfully"}
+{"level":"info","time":"2026-10-02T23:44:30.433Z","service":"server","env":"development","msg":"✅ PostgresSQL connected: localhost:5432/kevroo"}
+{"level":"info","time":"2026-10-02T23:44:30.435Z","service":"server","env":"development","msg":"✅ Server running at http://localhost:5001 in development mode"}
