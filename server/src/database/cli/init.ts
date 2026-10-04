@@ -131,9 +131,10 @@ async function main(): Promise<void> {
      * a non-zero exit is what makes this usable as a deploy step: a failed
      * migration stops the release instead of being a line in a log.
      */
-    logger.error(`Migration command "${command}" failed`, {
-      err: serializeError(err),
-    });
+    logger.error(
+      { err: serializeError(err) },
+      `Migration command "${command}" failed`
+    );
 
     // 3 means "someone else is migrating" — a deploy script can retry that,
     // where a schema error (1) should stop the release.
@@ -145,8 +146,9 @@ async function main(): Promise<void> {
 
 main().catch((err: unknown) => {
   // Only reachable if cleanup itself throws.
-  logger.error('Fatal error in the migration entry point', {
-    err: serializeError(err),
-  });
+  logger.error(
+    { err: serializeError(err) },
+    'Fatal error in the migration entry point'
+  );
   process.exitCode = 1;
 });
