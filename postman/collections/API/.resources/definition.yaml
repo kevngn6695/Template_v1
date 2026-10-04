@@ -1,4 +1,3 @@
 $kind: collection
-name: API
 variables:
   Base_Url: ""
